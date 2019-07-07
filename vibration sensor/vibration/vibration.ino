@@ -1,3 +1,5 @@
+#include <Firmata.h>
+
 int ledPin = 13;
 int EP = 9;
 
