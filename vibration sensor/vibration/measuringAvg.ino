@@ -31,18 +31,15 @@ void loop() {
         delay(40);
 
 
-        if (measurement > 1000) {
-            digitalWrite(ledPin, HIGH);
-        }
-
-        else {
-            digitalWrite(ledPin, LOW);
-        } 
-
+        digitalWrite(ledPin, HIGH);
+    
         sum += measurement;
         clock += 50;
     }
 
     avg = sum / 20;
     Serial.println("Average after 1 sec: " + avg);
+
+    sum = 0;
+    clock = 0;
 }
