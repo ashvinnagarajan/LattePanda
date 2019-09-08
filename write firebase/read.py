@@ -1,6 +1,9 @@
 #this file works completely perfectly
 #do not mess up this file
 
+
+#THIS FILE READS DATA FROM FIREBASE's SPEED DATA POINT AND PRINTS THE VALUE
+
 import pyrebase
 
 config = {
