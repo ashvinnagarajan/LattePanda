@@ -23,4 +23,9 @@ while (runSpeed == True):
      print(res)
 
      newSpeed = res
-     db.child("speed").update({"0": newSpeed})
+     db.child(trialName).child(timeName).child("speed").update(
+                            {"acceleration": 0,
+                            "avg": 0,
+                            "brake": 0,
+                            "speed": newSpeed,
+                            "throttle": 0})
