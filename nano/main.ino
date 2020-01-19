@@ -41,7 +41,9 @@ void loop()
     int voltage_raw = analogRead(voltagePin);
     float voltage = 5*VOLTAGE_CALIB*(voltage_raw/0.091)/1023;
     
+    Serial.print("Vlt: ");
     Serial.println(voltage);
+    Serial.print("Cur: ");
     Serial.println(current);
   }
 }

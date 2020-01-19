@@ -50,10 +50,14 @@ void loop()
       rpm = ((1/t_tot)*1000*60);
     }
 
-    Serial.print(latitude);
-    Serial.print(longitude);
-    Serial.print(speed/1000); 
-    Serial.print(rpm);
+    Serial.print("Lat: ");
+    Serial.println(latitude);
+    Serial.print("Lon: ");
+    Serial.println(longitude);
+    Serial.print("Spd: ");
+    Serial.println(speed/1000); 
+    Serial.print("Rpm: ");
+    Serial.println(rpm);
 
   }
 }
