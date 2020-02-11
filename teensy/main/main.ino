@@ -1,10 +1,10 @@
 #include <Wire.h> //Needed for I2C to GPS
 
-int hall_sensor = 2;
+int hall_sensor = 3;
 float t1 = 0;
 float t2 = 0;
 float t_tot = 0;
-int rpm = 0;
+long rpm = 0;
 
 void time1()
 {
@@ -19,7 +19,7 @@ long lastTime = 0;
 void setup()
 {
   Serial.begin(9600);
-
+  
   Wire.begin();
 
   if (myGPS.begin() == false) //Connect to the Ublox module using Wire port
@@ -49,10 +49,10 @@ void loop()
     {
       rpm = ((1/t_tot)*1000*60);
     }
-
+    
     Serial.print("Lat: ");
     Serial.println(latitude);
-    Serial.print("Lon: ");
+    Serial.print("Lng: ");
     Serial.println(longitude);
     Serial.print("Spd: ");
     Serial.println(speed/1000); 
