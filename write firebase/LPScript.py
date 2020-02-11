@@ -58,12 +58,12 @@ while (True):
   lapRunning = lapRunning.val()
 
   for x in range (0, joulemeterStatements): #read joulemeter statements
-  	  joulemeterInput = joulemeter.readline().decode('ascii')
-  	  joulemeterInputPrefix = joulemeterInput[0:3]
-  	  if (joulemeterInputPrefix == "Cur"):
-  	  	newCurrent = float(joulemeterInput[5:-2])
-  	  if (joulemeterInputPrefix == "Vlt"):
-		newVolt = float(joulemeterInput[5:-2])
+      joulemeterInput = joulemeter.readline().decode('ascii')
+      joulemeterInputPrefix = joulemeterInput[0:3]
+      if (joulemeterInputPrefix == "Cur"):
+        newCurrent = float(joulemeterInput[5:-2])
+      if (joulemeterInputPrefix == "Vlt"):
+        newVolt = float(joulemeterInput[5:-2])
 
   newPower = newCurrent*newVolt
 
@@ -75,44 +75,44 @@ while (True):
 #      newVolt = float(joulemeterInput[5:10])
 
   for x in range (0, otherNanoStatements): #read otherNano statements
-  	  otherNanoInput = otherNano.readline().decode('ascii')  
-  	  otherNanoPrefix = otherNanoInput[0:3]
-	  if (joulemeterInputPrefix == "Vlt"):
-		newVolt = float(joulemeterInput[5:-2])
-	  if (joulemeterInputPrefix == "Spd"):
-  	  	newSpeed = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "Lng"):
-  	  	newLong = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "Lat"):
-  	  	newLat = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "Alt"):
-  	  	newAltitude = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "Tem"):
-  	  	newTemp = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "GyX"):
-  	  	newGyroX = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "GyY"):
-  	  	newGyroY = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "GyZ"):
-  	  	newGyroZ = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "AcX"):
-  	  	newAcX = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "AcY"):
-  	  	newAcY = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "AcZ"):
-  	  	newAcZ = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "MaX"):
-  	  	newMagX = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "MaY"):
-  	  	newMagY = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "MaZ"):
-  	  	newMagZ = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "Pit"):
-  	  	newPitch = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "Rol"):
-  	  	newRoll = float(otherNanoInput[5:-2])
-  	  if (joulemeterInputPrefix == "Hea"):
-  	  	newHeading = float(otherNanoInput[5:-2])
+      otherNanoInput = otherNano.readline().decode('ascii')  
+      otherNanoPrefix = otherNanoInput[0:3]
+      if (joulemeterInputPrefix == "Vlt"):
+        newVolt = float(joulemeterInput[5:-2])
+      if (joulemeterInputPrefix == "Spd"):
+        newSpeed = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "Lng"):
+        newLong = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "Lat"):
+        newLat = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "Alt"):
+        newAltitude = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "Tem"):
+        newTemp = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "GyX"):
+        newGyroX = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "GyY"):
+        newGyroY = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "GyZ"):
+        newGyroZ = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "AcX"):
+        newAcX = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "AcY"):
+        newAcY = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "AcZ"):
+        newAcZ = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "MaX"):
+        newMagX = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "MaY"):
+        newMagY = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "MaZ"):
+        newMagZ = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "Pit"):
+        newPitch = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "Rol"):
+        newRoll = float(otherNanoInput[5:-2])
+      if (joulemeterInputPrefix == "Hea"):
+        newHeading = float(otherNanoInput[5:-2])
 
 #  otherNanoInput = otherNano.readline().decode('ascii')  
 #  if (otherNanoInput[0:3] == "Rpm"):
@@ -188,9 +188,9 @@ while (True):
         "temp": newTemp})
 
   db.child(trialName).child(timeName).child("IMU").update(
-  		{"MagX": newMagX,
-  		"MagY": newMagY,
-  		"MagZ": newMagZ,
-  		"Pitch": newPitch,
-  	  	"Roll": newRoll,
-  	  	"Heading": newHeading})
+        {"MagX": newMagX,
+        "MagY": newMagY,
+        "MagZ": newMagZ,
+        "Pitch": newPitch,
+        "Roll": newRoll,
+        "Heading": newHeading})
