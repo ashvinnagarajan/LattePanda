@@ -58,12 +58,12 @@ while (True):
   lapRunning = lapRunning.val()
 
   for x in range (0, joulemeterStatements): #read joulemeter statements
-      joulemeterInput = joulemeter.readline().decode('ascii')
-      joulemeterInputPrefix = joulemeterInput[0:3]
-      if (joulemeterInputPrefix == "Cur"):
-        newCurrent = float(joulemeterInput[5:-2])
-      if (joulemeterInputPrefix == "Vlt"):
-        newVolt = float(joulemeterInput[5:-2])
+    joulemeterInput = joulemeter.readline().decode('ascii')
+    joulemeterInputPrefix = joulemeterInput[0:3]
+    if (joulemeterInputPrefix == "Cur"):
+      newCurrent = float(joulemeterInput[5:-2])
+    if (joulemeterInputPrefix == "Vlt"):
+      newVolt = float(joulemeterInput[5:-2])
 
   newPower = newCurrent*newVolt
 
@@ -75,44 +75,44 @@ while (True):
 #      newVolt = float(joulemeterInput[5:10])
 
   for x in range (0, otherNanoStatements): #read otherNano statements
-      otherNanoInput = otherNano.readline().decode('ascii')  
-      otherNanoPrefix = otherNanoInput[0:3]
-      if (joulemeterInputPrefix == "Vlt"):
-        newVolt = float(joulemeterInput[5:-2])
-      if (joulemeterInputPrefix == "Spd"):
-        newSpeed = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "Lng"):
-        newLong = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "Lat"):
-        newLat = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "Alt"):
-        newAltitude = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "Tem"):
-        newTemp = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "GyX"):
-        newGyroX = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "GyY"):
-        newGyroY = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "GyZ"):
-        newGyroZ = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "AcX"):
-        newAcX = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "AcY"):
-        newAcY = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "AcZ"):
-        newAcZ = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "MaX"):
-        newMagX = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "MaY"):
-        newMagY = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "MaZ"):
-        newMagZ = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "Pit"):
-        newPitch = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "Rol"):
-        newRoll = float(otherNanoInput[5:-2])
-      if (joulemeterInputPrefix == "Hea"):
-        newHeading = float(otherNanoInput[5:-2])
+    otherNanoInput = otherNano.readline().decode('ascii')  
+    otherNanoPrefix = otherNanoInput[0:3]
+    if (joulemeterInputPrefix == "Vlt"):
+      newVolt = float(joulemeterInput[5:-2])
+    if (joulemeterInputPrefix == "Spd"):
+      newSpeed = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "Lng"):
+      newLong = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "Lat"):
+      newLat = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "Alt"):
+      newAltitude = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "Tem"):
+      newTemp = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "GyX"):
+      newGyroX = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "GyY"):
+      newGyroY = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "GyZ"):
+      newGyroZ = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "AcX"):
+      newAcX = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "AcY"):
+      newAcY = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "AcZ"):
+      newAcZ = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "MaX"):
+      newMagX = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "MaY"):
+      newMagY = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "MaZ"):
+      newMagZ = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "Pit"):
+      newPitch = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "Rol"):
+      newRoll = float(otherNanoInput[5:-2])
+    if (joulemeterInputPrefix == "Hea"):
+      newHeading = float(otherNanoInput[5:-2])
 
 #  otherNanoInput = otherNano.readline().decode('ascii')  
 #  if (otherNanoInput[0:3] == "Rpm"):
@@ -128,69 +128,69 @@ while (True):
 #      newLat = float(otherNanoInput[5:10])
 
   db.update(
-        {"Latest Trial": trialName,
-        "Latest Time": timeName})
+    {"Latest Trial": trialName,
+    "Latest Time": timeName})
 
   db.child(trialName).child(timeName).child("battery").update(
-        {"amp": 0,
-        "remaining": 0,
-        "temp": 0,
-        "volt": 0})
+    {"amp": 0,
+    "remaining": 0,
+    "temp": 0,
+    "volt": 0})
 
   db.child(trialName).child(timeName).child("driver").update(
-        {"image": "./images/Caroline.jpg",
-        "message": "I Believe In You!!!",
-        "name": "Caroline",
-        "phone": "999-999-999",
-        "social": "@CarolineDriver"})
+    {"image": "./images/Caroline.jpg",
+    "message": "I Believe In You!!!",
+    "name": "Caroline",
+    "phone": "999-999-999",
+    "social": "@CarolineDriver"})
 
   db.child(trialName).child(timeName).child("gps").update(
-        {"lat": newLat,
-        "long": newLong})
+    {"lat": newLat,
+    "long": newLong})
 
   db.child(trialName).child(timeName).child("joulemeter").update(
-        {"amp": newCurrent,
-        "avg": 0,
-        "instant": newPower,
-        "peak": 0,
-        "volt": newVolt,
-        "GyX": newGyroX,
-        "GyY": newGyroY,
-        "GyZ": newGyroZ,
-        "Altitude": newAltitude})
+    {"amp": newCurrent,
+    "avg": 0,
+    "instant": newPower,
+    "peak": 0,
+    "volt": newVolt,
+    "GyX": newGyroX,
+    "GyY": newGyroY,
+    "GyZ": newGyroZ,
+    "Altitude": newAltitude})
 
   db.child(trialName).child(timeName).child("lap").update(
-        {"current": lapNumber,
-        "fastest": 0,
-        "number": 0,
-        "remaining": 0,
-        "slowest": 0,
-        "total": 0,
-        "running": lapRunning})
+    {"current": lapNumber,
+    "fastest": 0,
+    "number": 0,
+    "remaining": 0,
+    "slowest": 0,
+    "total": 0,
+    "running": lapRunning})
 
   db.child(trialName).child(timeName).child("motor").update(
-        {"bhp": 0,
-        "temp": 0,
-        "volt": 0})
+    {"bhp": 0,
+    "temp": 0,
+    "volt": 0})
 
   db.child(trialName).child(timeName).child("speed").update(
-        {"acceleration x": newAcX,
-        "acceleration y": newAcY,
-        "acceleration z": newAcZ,
-        "avg": 0,
-        "rpm": newRPM,
-        "speed": newSpeed,
-        "throttle": 0})
+    {"acceleration x": newAcX,
+    "acceleration y": newAcY,
+    "acceleration z": newAcZ,
+    "avg": 0,
+    "rpm": newRPM,
+    "speed": newSpeed,
+    "throttle": 0})
 
   db.child(trialName).child(timeName).child("track").update(
-        {"name": "Parking Garage",
-        "trial": 1,
-        "temp": newTemp})
+    {"name": "Parking Garage",
+    "trial": 1,
+    "temp": newTemp})
 
   db.child(trialName).child(timeName).child("IMU").update(
-        {"MagX": newMagX,
-        "MagY": newMagY,
-        "MagZ": newMagZ,
-        "Pitch": newPitch,
-        "Roll": newRoll,
-        "Heading": newHeading})
+    {"MagX": newMagX,
+    "MagY": newMagY,
+    "MagZ": newMagZ,
+    "Pitch": newPitch,
+    "Roll": newRoll,
+    "Heading": newHeading})
