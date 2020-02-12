@@ -40,13 +40,14 @@ newMagZ = -1
 newPitch = -1
 newRoll = -1
 newHeading = -1
+newThrottle = -1
 
-joulemeterStatements = 2 #number of statements from joulemeter
-otherNanoStatements = 18 #number of statements from everything else
+joulemeterStatements = 3 #number of statements from joulemeter
+otherNanoStatements = 19 #number of statements from everything else
 
 while (True):
-  joulemeter = serial.Serial('/dev/oliver', baudrate = 9600, timeout = 1) #joulemeter Arduino
-  otherNano = serial.Serial('/dev/lexi', baudrate = 9600, timeout = 1) #everything else Arduino
+  joulemeter = serial.Serial('/dev/ttyUSB1', baudrate = 9600, timeout = 1) #joulemeter Arduino
+  otherNano = serial.Serial('/dev/ttyUSB0', baudrate = 9600, timeout = 1) #everything else Arduino
 
   now = datetime.now() #set time
   current_time = now.strftime("%H:%M:%S") #set current time
@@ -64,6 +65,8 @@ while (True):
       newCurrent = float(joulemeterInput[5:-2])
     if (joulemeterInputPrefix == "Vlt"):
       newVolt = float(joulemeterInput[5:-2])
+    if (joulemeterInputPrefix == "Thr"):
+      newThrottle = float(joulemeterInput[5:-2])
 
   newPower = newCurrent*newVolt
 
@@ -77,43 +80,44 @@ while (True):
   for x in range (0, otherNanoStatements): #read otherNano statements
     otherNanoInput = otherNano.readline().decode('ascii')  
     otherNanoPrefix = otherNanoInput[0:3]
-    if (joulemeterInputPrefix == "Vlt"):
+    if (otherNanoPrefix == "Vlt"):
       newVolt = float(joulemeterInput[5:-2])
-    if (joulemeterInputPrefix == "Spd"):
+    if (otherNanoPrefix == "Spd"):
       newSpeed = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "Lng"):
+    if (otherNanoPrefix == "Lng"):
       newLong = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "Lat"):
+    if (otherNanoPrefix == "Lat"):
       newLat = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "Alt"):
+    if (otherNanoPrefix == "Alt"):
       newAltitude = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "Tem"):
+    if (otherNanoPrefix == "Tem"):
       newTemp = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "GyX"):
+    if (otherNanoPrefix == "GyX"):
       newGyroX = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "GyY"):
+    if (otherNanoPrefix == "GyY"):
       newGyroY = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "GyZ"):
+    if (otherNanoPrefix == "GyZ"):
       newGyroZ = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "AcX"):
+    if (otherNanoPrefix == "AcX"):
       newAcX = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "AcY"):
+    if (otherNanoPrefix == "AcY"):
       newAcY = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "AcZ"):
+    if (otherNanoPrefix == "AcZ"):
       newAcZ = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "MaX"):
+    if (otherNanoPrefix == "MaX"):
       newMagX = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "MaY"):
+    if (otherNanoPrefix == "MaY"):
       newMagY = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "MaZ"):
+    if (otherNanoPrefix == "MaZ"):
       newMagZ = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "Pit"):
+    if (otherNanoPrefix == "Pit"):
       newPitch = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "Rol"):
+    if (otherNanoPrefix == "Rol"):
       newRoll = float(otherNanoInput[5:-2])
-    if (joulemeterInputPrefix == "Hea"):
+    if (otherNanoPrefix == "Hea"):
       newHeading = float(otherNanoInput[5:-2])
-
+    if (otherNanoPrefix == "Rpm"):
+      newRPM = float(otherNanoInput[5:-2])
 #  otherNanoInput = otherNano.readline().decode('ascii')  
 #  if (otherNanoInput[0:3] == "Rpm"):
 #      newRPM = (otherNanoInput[5:10])
@@ -180,7 +184,7 @@ while (True):
     "avg": 0,
     "rpm": newRPM,
     "speed": newSpeed,
-    "throttle": 0})
+    "throttle": newThrottle})
 
   db.child(trialName).child(timeName).child("track").update(
     {"name": "Parking Garage",
