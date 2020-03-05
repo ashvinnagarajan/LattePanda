@@ -1,4 +1,4 @@
-int hall_sensor = 2;
+int hall_sensor = 3;
 float t1 = 0;
 float t2 = 0;
 float t_tot = 0;
