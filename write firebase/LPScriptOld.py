@@ -2,7 +2,7 @@ import pyrebase
 import time
 import serial
 from datetime import datetime
-​
+
 config = {
     "apiKey": "AIzaSyAnFTWZTgWEugKOSUM6WY_NkxrPzRzn6dU",
     "authDomain": "bruin-racing.firebaseapp.com",
